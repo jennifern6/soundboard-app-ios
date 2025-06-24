@@ -32,7 +32,7 @@ const sounds = [
 
 export default function App() {
   const [showTitle, setShowTitle] = useState(true);
-  const currentSound = useRef(null); // 🔊 Keeps track of the current sound
+  const currentSound = useRef(null);
 
   useEffect(() => {
     Audio.setAudioModeAsync({
@@ -42,7 +42,6 @@ export default function App() {
 
   const playSound = async (soundFile) => {
     try {
-      // 🛑 Stop and unload any previous sound
       if (currentSound.current) {
         await currentSound.current.stopAsync();
         await currentSound.current.unloadAsync();
